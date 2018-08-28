@@ -5,3 +5,4 @@ checkpoint/*
 project/*
 jaas_mh.conf
 cassandra.properties
+messagehub.properties

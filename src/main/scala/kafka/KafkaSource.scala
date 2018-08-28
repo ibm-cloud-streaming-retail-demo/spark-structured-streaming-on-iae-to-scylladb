@@ -1,5 +1,8 @@
 package kafka
 
+import java.io.FileInputStream
+import java.util.Properties
+
 import org.apache.spark.sql.{DataFrame, Dataset}
 import org.apache.spark.sql.functions.{struct, to_json, _}
 import _root_.log.LazyLogger
@@ -33,13 +36,26 @@ object KafkaSource extends LazyLogger {
     * startingOffsets should use a JSON coming from the lastest offsets saved in our DB (Cassandra here)
     */
     def read(startingOption: String = "startingOffsets", partitionsAndOffsets: String = "earliest") : Dataset[InvoiceItemKafka] = {
+
+      val (bootstrapServers) =
+        try {
+          val prop = new Properties()
+          prop.load(new FileInputStream("messagehub.properties"))
+          (
+            prop.getProperty("bootstrap.servers")
+          )
+        } catch { case e: Exception =>
+          e.printStackTrace()
+          sys.exit(1)
+        }
+
       log.warn("Reading from Kafka")
 
       spark
       .readStream
       .format("kafka")
 
-      .option("kafka.bootstrap.servers", "kafka03-prod01.messagehub.services.eu-de.bluemix.net:9093,kafka04-prod01.messagehub.services.eu-de.bluemix.net:9093,kafka01-prod01.messagehub.services.eu-de.bluemix.net:9093,kafka02-prod01.messagehub.services.eu-de.bluemix.net:9093,kafka05-prod01.messagehub.services.eu-de.bluemix.net:9093")
+      .option("kafka.bootstrap.servers", bootstrapServers)
       .option("subscribe", "transactions_load")
       .option("kafka.security.protocol", "SASL_SSL")
       .option("kafka.sasl.mechanism", "PLAIN")

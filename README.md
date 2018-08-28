@@ -35,10 +35,12 @@ cd spark-structured-streaming-on-iae-to-scylladb/
 ```
 cp ./jaas_mh.conf_template jaas_mh.conf
 cp ./cassandra.properties_template cassandra.properties
+cp ./messagehub.properties_template messagehub.properties
 ```
 
 - Edit `jaas_mh.conf` with your Message Hub username and password
 - Edit `cassandra.properties` with your ScyllaDB connection details
+- Edit `messagehub.properties` with your MessageHub connection details
 
 - Open a cqlsh session and paste the contents of [schema.sql](./schema.sql) to create the scyllaDB schema.
 
