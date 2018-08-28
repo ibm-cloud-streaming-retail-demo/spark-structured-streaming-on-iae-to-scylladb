@@ -21,6 +21,10 @@ This project is based on https://github.com/polomarcus/Spark-Structured-Streamin
 - You have SBT 1.2.1+ installed ([instructions](https://www.scala-sbt.org/1.x/docs/Setup.html))
 - You have Cassandra cqsh command installed and configured ([instructions](https://console.bluemix.net/docs/services/ComposeForScyllaDB/scylla-cqlsh.html#using-cqlsh)
 
+# Optional
+
+- You have scala knowledge (you will only need this if you want to change the demo functionality)
+
 # Setup
 
 - Clone this project
