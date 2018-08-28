@@ -1,0 +1,7 @@
+.idea/*
+target/*
+spark-warehouse/*
+checkpoint/*
+project/*
+jaas_mh.conf
+cassandra.properties

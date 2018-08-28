@@ -1,0 +1,4 @@
+host:host1,host2,...
+port:28730
+username:scylla
+password:CHANGEME
