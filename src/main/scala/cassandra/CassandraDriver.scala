@@ -43,6 +43,8 @@ object CassandraDriver extends LazyLogger {
         Map(
           "keyspace" -> namespace,
           "table" -> StreamProviderTableSink,
+
+          // TODO - save checkpoints in scylladb
           "checkpointLocation" -> "/tmp/checkpoints"
         )
       )
