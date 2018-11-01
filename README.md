@@ -6,7 +6,7 @@ Spark Structured Streaming from IBM Message Hub to ScyllaDB using Spark on IBM A
 The purpose of this project is to take the continuous data set produced to IBM Message Hub (Kafka) by [dataset-generator](https://github.com/ibm-cloud-streaming-retail-demo/kafka-producer-for-simulated-data
 ) and storing the data in IBM Compose ScyllaDB using Apache Spark Structured Streaming on IBM Analytics Engine.
 
-**!WARNING!** This project only works with Apache Spark 2.2.x whereas IBM Analytics Engine has Apache Spark 2.3.x.  This project will not yet run on IBM Analytics Engine.
+**!WARNING!** This project only works with Apache Spark 2.2.x whereas IBM Analytics Engine has Apache Spark 2.3.x.  This project will not yet run on IBM Analytics Engine. See [here](https://github.com/polomarcus/Spark-Structured-Streaming-Examples/pull/13) for details of the upstream issue.
 
 # Acknowledgements
 
@@ -20,6 +20,10 @@ This project is based on https://github.com/polomarcus/Spark-Structured-Streamin
 - You have an IBM Analytics Engine (1.1) instance running in IBM Cloud
 - You have SBT 1.2.1+ installed ([instructions](https://www.scala-sbt.org/1.x/docs/Setup.html))
 - You have Cassandra cqsh command installed and configured ([instructions](https://console.bluemix.net/docs/services/ComposeForScyllaDB/scylla-cqlsh.html#using-cqlsh)
+
+# Optional
+
+- You have scala knowledge (you will only need this if you want to change the demo functionality)
 
 # Setup
 
